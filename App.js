@@ -24,15 +24,15 @@ function App() {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    //
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
           <Stack.Screen name="Game" component={Game} />
           <Stack.Screen name="Result" component={Result} />
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+  
   );
 }
 
