@@ -24,7 +24,6 @@ function App() {
   };
 
   return (
-    //
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
@@ -32,7 +31,6 @@ function App() {
           <Stack.Screen name="Result" component={Result} />
         </Stack.Navigator>
       </NavigationContainer>
-  
   );
 }
 

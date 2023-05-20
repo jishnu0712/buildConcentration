@@ -1,7 +1,8 @@
 import { Text, View } from 'react-native'
 import styleSheet from '../styles/Stylesheet'
 
-const Game = ({navigation}) => {
+const Game = ({navigation, route}) => {
+  console.log(route.params.gameNo)
   return (
     <View>
       <Text>Game</Text>

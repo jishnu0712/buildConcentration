@@ -13,6 +13,7 @@ const styleSheet = StyleSheet.create({
     subtitleTextStyle: {
         fontSize: 24,
         fontWeight: 400,
+        color: 'black'
     },
     // react native default styles (use as reference)
     sectionContainer: {
@@ -31,6 +32,19 @@ const styleSheet = StyleSheet.create({
       highlight: {
         fontWeight: '700',
       },
+      excercises: {
+        backgroundColor: 'white',
+        marginTop: 10,
+        padding: 15,
+        borderRadius: 2
+      },
+      serialNo: {
+        fontWeight: 'bold',
+        fontSize: 35
+      },
+      excercisesName: {
+        fontWeight: 'bold'
+      }
 })
 
 export default styleSheet
