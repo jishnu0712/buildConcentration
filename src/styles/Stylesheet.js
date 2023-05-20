@@ -14,6 +14,10 @@ const styleSheet = StyleSheet.create({
         fontSize: 24,
         fontWeight: 400,
     },
+    //game screen
+    
+
+
     // react native default styles (use as reference)
     sectionContainer: {
         marginTop: 32,
