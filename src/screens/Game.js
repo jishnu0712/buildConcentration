@@ -1,18 +1,10 @@
-import React, { useState } from 'react'
-import { View } from 'react-native'
-import styleSheet from '../styles/Stylesheet'
 import AllComponents from '../gameComponents/AllComponents'
-
 const Game = ({ navigation, route }) => {
-
-  const Comp = AllComponents[route.params.gameName]
+  const Comp = AllComponents[route.params.title.replaceAll(' ', '')]
   return (
-    <View>
-      <Comp/>
-    </View>
+      <Comp navigation={navigation} route= {route.params}/>
   )
 }
-
 export default Game
 
 

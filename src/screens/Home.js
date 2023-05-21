@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
           data={gamesList}
           renderItem={({ item, index }) => (
             <>
-              <TouchableOpacity style={styleSheet.excercises} onPress={()=>navigation.navigate('Game', {gameName : item.title.replaceAll(' ', '')})}>
+              <TouchableOpacity style={styleSheet.excercises} onPress={()=>navigation.navigate('Game', item)}>
                 <Text style={styleSheet.subtitleTextStyle}>
                   <Text style={styleSheet.serialNo}>{index + 1}.</Text> <Text style={styleSheet.excercisesName}>{item.title}</Text>
                 </Text>
