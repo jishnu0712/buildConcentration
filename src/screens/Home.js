@@ -9,7 +9,7 @@ const Home = ({navigation}) => {
   const myContext = useContext(UserContext)
   const games = require('../json/GamesList.json')
   return (
-    <View style={styleSheet.mainArea}>
+    <View style={{...styleSheet.mainArea, ...myContext}}>
           <Text style={styleSheet.textStyle}>Excercises.</Text>
           <FlatList
           style={{ width: '98%' }}

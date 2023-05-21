@@ -13,7 +13,7 @@ const styleSheet = StyleSheet.create({
     subtitleTextStyle: {
         fontSize: 24,
         fontWeight: 400,
-        color: 'black'
+        // color: 'black'
     },
     //game screen
     
@@ -37,9 +37,11 @@ const styleSheet = StyleSheet.create({
         fontWeight: '700',
       },
       excercises: {
-        backgroundColor: 'white',
-        marginTop: 10,
-        padding: 15,
+        // backgroundColor: 'white',
+        // marginTop: 10,
+        // padding: 15,
+        paddingVertical: 5,
+        paddingHorizontal: 20,
         borderRadius: 2
       },
       serialNo: {
