@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, View, SafeAreaView } from 'react-native'
+import { TouchableOpacity, Text, View, SafeAreaView, FlatList } from 'react-native'
 import styleSheet from '../styles/Stylesheet'
 import { useContext } from 'react'
 import UserContext from '../context/Context';
