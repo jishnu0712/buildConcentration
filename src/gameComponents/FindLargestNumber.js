@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Game1 = () => {
+const FindLargestNumber = () => {
   return (
     <View>
-      <Text>Game1</Text>
+      <Text>FindLargestNumber</Text>
     </View>
   )
 }
 
-export default Game1
+export default FindLargestNumber
 
 const styles = StyleSheet.create({})
