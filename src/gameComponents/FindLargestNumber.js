@@ -86,9 +86,11 @@ const FindLargestNumber = ({ navigation, route }) => {
   return (
     <>
       <View style={globalStyleSheet.mainArea}>
-        <TouchableOpacity style={styles.exitView} onPress={GoBack}>
-          <Image style={styles.crossIcon} source={crossIcon} />
-        </TouchableOpacity>
+          <View style={styles.exitView}>
+            <TouchableOpacity onPress={GoBack}>
+              <Image style={styles.crossIcon} source={crossIcon} />
+            </TouchableOpacity>
+          </View>
         <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
           <Text style={globalStyleSheet.headerTextStyle}>Find Largest Number</Text>
           <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50, }}></View>
