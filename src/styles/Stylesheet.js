@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const styleSheet = StyleSheet.create({
+const globalStyleSheet = StyleSheet.create({
     mainArea: {
         height: '100%',
         paddingVertical: 16,
@@ -14,10 +14,6 @@ const styleSheet = StyleSheet.create({
         
     },
     //game screen
-    
-
-
-    // react native default styles (use as reference)
     sectionContainer: {
         marginTop: 32,
         paddingHorizontal: 24,
@@ -35,9 +31,6 @@ const styleSheet = StyleSheet.create({
         fontWeight: '700',
       },
       excercises: {
-        // backgroundColor: 'white',
-        // marginTop: 10,
-        // padding: 15,
         paddingVertical: 5,
         paddingHorizontal: 20,
         borderRadius: 2
@@ -58,4 +51,4 @@ const styleSheet = StyleSheet.create({
       }
 })
 
-export default styleSheet
+export default globalStyleSheet

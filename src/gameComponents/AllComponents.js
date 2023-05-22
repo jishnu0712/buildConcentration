@@ -1,5 +1,4 @@
-import FindLargestNumber from '../gameComponents/FindLargestNumber'
-import SelectColor from '../gameComponents/SelectColor'
+import FindLargestNumber from './FindLargestNumber'
 import SelectRightColor from './SelectRightColor'
 
 const AllComponents = {

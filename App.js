@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import {
-  useColorScheme,
-} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './src/screens/Home'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 // import styleSheet from './src/styles/Stylesheet'
 import Game from './src/screens/Game'
 import Result from './src/screens/Result'
