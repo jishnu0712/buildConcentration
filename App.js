@@ -14,21 +14,10 @@ import UserContext from './src/context/Context'
 const Stack = createNativeStackNavigator()
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark'
-
-  // const backgroundStyle = {
-  //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  // }
-
-  const [backgroundStyle, setBackgroundStyle] = useState( {backgroundColor: isDarkMode ? Colors.darker : Colors.lighter})
-
-  useEffect(()=> {
-    setBackgroundStyle({backgroundColor: isDarkMode ? Colors.darker : Colors.lighter})
-  },[])
   
   return (
     <NavigationContainer>
-      <UserContext.Provider value={backgroundStyle}>
+      <UserContext.Provider value={'dummy value'}>
 
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

@@ -6,14 +6,12 @@ const styleSheet = StyleSheet.create({
         paddingVertical: 16,
         paddingHorizontal: 12,
     },
-    textStyle: {
-        fontSize: 36,
-        fontWeight: 600,
-    },
-    subtitleTextStyle: {
-        fontSize: 24,
-        fontWeight: 400,
-        // color: 'black'
+    headerTextStyle: {
+        fontSize: 32,
+        fontWeight: 800,
+        color: 'black',
+        marginTop: 24,
+        
     },
     //game screen
     
@@ -46,10 +44,17 @@ const styleSheet = StyleSheet.create({
       },
       serialNo: {
         fontWeight: 'bold',
-        fontSize: 35
+        fontSize: 35, 
+        color: 'black'
       },
       excercisesName: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 400,
+      }, 
+      excerciseDescription: {
+        color: 'gray'
       }
 })
 
