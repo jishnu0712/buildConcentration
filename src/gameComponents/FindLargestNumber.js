@@ -15,6 +15,7 @@ const FindLargestNumber = ({navigation, route}) => {
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
   const [second, setSecond] = useState(50)
+  const [tickColor, setTickColor] = useState(null)
 
 
   const startGame = () => {
@@ -40,7 +41,11 @@ const FindLargestNumber = ({navigation, route}) => {
     }
   }, [gameStarted, second])
   
-
+  const setTickColorAfterChange = () => {
+    setTimeout(()=> {
+      setTickColor(null)
+    }, 200)
+  }
 
   const changeNumber = (button) => {
     if(second == 0){
@@ -49,10 +54,21 @@ const FindLargestNumber = ({navigation, route}) => {
     if(button == 'left'){
       if(leftValue > rightValue){
         setRightAnswer((prev) => prev + 1)
+        setTickColor('green')
+        setTickColorAfterChange()
+      }else{
+        setTickColor('red')
+        setTickColorAfterChange()
       }
     }else{
       if(leftValue < rightValue){
         setRightAnswer((prev) => prev + 1)
+        setTickColor('green')
+        setTickColorAfterChange()
+        
+      }else{
+        setTickColor('red')
+        setTickColorAfterChange()
       }
     }
     setTotalAnswered((prev) => prev + 1)
@@ -66,8 +82,9 @@ const FindLargestNumber = ({navigation, route}) => {
         <TouchableOpacity style={styles.exitView} onPress={GoBack}>
           <Image style={styles.crossIcon} source={crossIcon}/>
         </TouchableOpacity>
-        <View>
+        <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
           <Text style={styles.title}>Find Largest Number</Text>
+          <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50, }}></View>
         </View>
         {
           !gameStarted ? (
