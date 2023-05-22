@@ -18,7 +18,8 @@ const Home = ({navigation}) => {
             <>
               <TouchableOpacity style={styleSheet.excercises} onPress={()=>navigation.navigate('Game', item)}>
                 <Text style={styleSheet.subtitleTextStyle}>
-                  <Text style={styleSheet.serialNo}>{index + 1}.</Text> <Text style={styleSheet.excercisesName}>{item.title}</Text>
+                  <Text style={styleSheet.serialNo}>{index + 1}.</Text>
+                  <Text style={styleSheet.excercisesName}>{item.title}</Text>
                 </Text>
                 <View>
                   <Text>{item.subTitle}</Text>
