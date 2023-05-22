@@ -1,7 +1,6 @@
 import { View, Text } from 'react-native'
-
-
-const SelectRightColor = () => {
+import ExitComponent from '../OtherComponents/ExitComponent'
+const SelectRightColor = ({navigation}) => {
   const namedColors = ["black", "blue", "cyan", "gray", "green", "magenta", "orange", "purple", "red", "white", "yellow",];
 
   function getRandomNumber() {
@@ -9,9 +8,12 @@ const SelectRightColor = () => {
   }
 
   return (
-    <View>
-      <Text style={{  fontSize: 24,color: namedColors[getRandomNumber()] }}>Select the below text with the same color shown in the box.</Text>
-    </View>
+    <>
+        <ExitComponent navigation={navigation}/>
+        <View>
+          <Text style={{  fontSize: 24,color: namedColors[getRandomNumber()] }}>Select the below text with the same color shown in the box.</Text>
+        </View>
+    </>
   )
 }
 

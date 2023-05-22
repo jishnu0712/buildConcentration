@@ -6,14 +6,6 @@ const styles = StyleSheet.create({
       fontSize: 30,
       color: 'black',
     },
-    crossIcon: {
-      width: 20,
-      height: 20,
-    },
-    exitView: {
-      alignItems: 'flex-end',
-      margin: 10,
-    },
     startButton: {
       color: 'black',
       fontWeight: 'bold',
