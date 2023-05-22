@@ -9,9 +9,11 @@ const FindLargestNumber = ({navigation, route}) => {
   const [gameStarted, setIsGameStarted] = useState(false)
 
 
+  const leftVal = Math.floor(Math.random() * 99)
+  const rightVal = Math.floor(Math.random() * 99)
   
-  const [leftValue, setLeftValue] = useState(Math.floor(Math.random() * 99))
-  const [rightValue, setRightValue] = useState(Math.floor(Math.random() * 99))
+  const [leftValue, setLeftValue] = useState(leftVal)
+  const [rightValue, setRightValue] = useState((leftVal === rightVal) ? rightVal + 1 : rightVal)
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
   const [second, setSecond] = useState(50)
@@ -72,8 +74,10 @@ const FindLargestNumber = ({navigation, route}) => {
       }
     }
     setTotalAnswered((prev) => prev + 1)
-    setLeftValue(Math.floor(Math.random() * 99))
-    setRightValue(Math.floor(Math.random() * 99))
+    const lVal = Math.floor(Math.random() * 99)
+    setLeftValue(lVal)
+    const rVal = Math.floor(Math.random() * 99)
+    setRightValue((rVal === lVal) ? rVal + 1 : rVal)
   }
 
   return (
