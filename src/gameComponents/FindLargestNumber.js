@@ -5,7 +5,7 @@ import globalStyleSheet from '../styles/Stylesheet'
 import ExitComponent from '../OtherComponents/ExitComponent'
 
 const FindLargestNumber = ({ navigation, route }) => {
-  
+
 
   const [gameStarted, setIsGameStarted] = useState(false)
 
@@ -85,7 +85,7 @@ const FindLargestNumber = ({ navigation, route }) => {
   return (
     <>
       <View style={globalStyleSheet.mainArea}>
-        <ExitComponent navigation={navigation}/>
+        <ExitComponent navigation={navigation} />
         <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
           <Text style={globalStyleSheet.headerTextStyle}>Find Largest Number</Text>
           <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
@@ -97,27 +97,29 @@ const FindLargestNumber = ({ navigation, route }) => {
             </TouchableOpacity>
           </View>
         ) : (
-          <View style={styles.gameStartedView}>
+          <>
             <View style={styles.timer}>
               <Text style={styles.timerText}>00:{second}</Text>
             </View>
-            <View>
-              <View style={styles.numberButtonView}>
-                <TouchableOpacity style={styles.leftButton} onPress={() => changeNumber('left')}>
-                  <Text style={styles.startButton}>{leftValue}</Text>
-                </TouchableOpacity>
-                <View style={styles.redDot}></View>
-                <TouchableOpacity style={styles.rightButton} onPress={() => changeNumber('right')}>
-                  <Text style={styles.startButton}>{rightValue}</Text>
-                </TouchableOpacity>
+            <View style={styles.gameStartedView}>
+              <View>
+                <View style={styles.numberButtonView}>
+                  <TouchableOpacity style={styles.leftButton} onPress={() => changeNumber('left')}>
+                    <Text style={styles.startButton}>{leftValue}</Text>
+                  </TouchableOpacity>
+                  <View style={styles.redDot}></View>
+                  <TouchableOpacity style={styles.rightButton} onPress={() => changeNumber('right')}>
+                    <Text style={styles.startButton}>{rightValue}</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
+          </>
         )}
       </View>
     </>
   )
-  
+
 }
 
 export default FindLargestNumber
