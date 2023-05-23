@@ -1,13 +1,13 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import { Text, TouchableOpacity, View } from 'react-native'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from '../styles/FindLargestNumStyleSheet'
 import globalStyleSheet from '../styles/Stylesheet'
 import ExitComponent from '../OtherComponents/ExitComponent'
+import StartButtonComponent from '../OtherComponents/StartButtonComponent'
+import UserContext from '../context/Context'
 
 const FindLargestNumber = ({ navigation, route }) => {
-
-
-  const [gameStarted, setIsGameStarted] = useState(false)
+  const MyContext = useContext(UserContext);
 
   const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -23,14 +23,10 @@ const FindLargestNumber = ({ navigation, route }) => {
   const [second, setSecond] = useState(50)
   const [tickColor, setTickColor] = useState(null)
 
-  const startGame = () => {
-    setIsGameStarted(prev => !prev)
-  }
-
   useEffect(() => {
     let intervalId = null
 
-    if (gameStarted) {
+    if (MyContext.gameStarted) {
       intervalId = setInterval(() => {
         setSecond(prevSecond => prevSecond - 1)
       }, 1000)
@@ -44,7 +40,7 @@ const FindLargestNumber = ({ navigation, route }) => {
     return () => {
       clearInterval(intervalId)
     }
-  }, [gameStarted, second])
+  }, [MyContext.gameStarted, second])
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -87,23 +83,16 @@ const FindLargestNumber = ({ navigation, route }) => {
       <View style={globalStyleSheet.mainArea}>
         <ExitComponent navigation={navigation} />
         
-        {!gameStarted ? (
+        {!MyContext.gameStarted ? (
           <>
-            <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-              <Text style={globalStyleSheet.headerTextStyle}>Find Largest Number</Text>
-              <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
-            </View>
-            <View style={styles.startButtonView}>
-              <TouchableOpacity onPress={startGame}>
-                <Text style={styles.startButton}>Start</Text>
-              </TouchableOpacity>
-            </View>
+              <StartButtonComponent navigation={navigation} route={route}/>
           </>
         ) : (
           <>
             <View style={styles.timer}>
               <Text style={styles.timerText}>00:{second}</Text>
             </View>
+            <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
             <View style={styles.gameStartedView}>
               <View>
                 <View style={styles.numberButtonView}>
