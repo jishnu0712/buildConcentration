@@ -86,16 +86,19 @@ const FindLargestNumber = ({ navigation, route }) => {
     <>
       <View style={globalStyleSheet.mainArea}>
         <ExitComponent navigation={navigation} />
-        <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
-          <Text style={globalStyleSheet.headerTextStyle}>Find Largest Number</Text>
-          <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
-        </View>
+        
         {!gameStarted ? (
-          <View style={styles.startButtonView}>
-            <TouchableOpacity onPress={startGame}>
-              <Text style={styles.startButton}>Start</Text>
-            </TouchableOpacity>
-          </View>
+          <>
+            <View style={{ justifyContent: 'space-around', flexDirection: 'row' }}>
+              <Text style={globalStyleSheet.headerTextStyle}>Find Largest Number</Text>
+              <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
+            </View>
+            <View style={styles.startButtonView}>
+              <TouchableOpacity onPress={startGame}>
+                <Text style={styles.startButton}>Start</Text>
+              </TouchableOpacity>
+            </View>
+          </>
         ) : (
           <>
             <View style={styles.timer}>
