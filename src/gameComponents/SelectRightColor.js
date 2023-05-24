@@ -1,9 +1,9 @@
 import { View, Text, FlatList, StyleSheet } from 'react-native'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import UserContext from '../context/Context'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-
+import {randomNumber} from '../Helper/Helper'
 
 const Item = ({title, bgcolor}) => (
   <View style={[styles.item, {backgroundColor: bgcolor}]}>
@@ -11,9 +11,6 @@ const Item = ({title, bgcolor}) => (
   </View>
 )
 
-const getRandomNumber = () => {
-  return Math.floor(Math.random() * 10)
-}
 
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -23,18 +20,17 @@ const shuffleArray = (array) => {
   return array;
 }
 
-const SelectRightColor = ({navigation, route}) => {
-  const namedColorss = ["black", "blue", "gray", "green", "magenta", "orange", "purple", "red", "white", "yellow",]
-  const namedColors = shuffleArray(namedColorss)
 
+
+const SelectRightColor = ({navigation, route}) => {
+  const namedColorss = ["blue", "gray", "green", "magenta", "orange", "purple", "red", "yellow",]
+  const namedColors = shuffleArray(namedColorss)
   const MyContext = useContext(UserContext)
+  const [color, setColor] = useState(randomNumber(0, 7))
 
   return (
     <>
         <ExitComponent navigation={navigation}/>
-        <View>
-          <Text style={{  fontSize: 24,color: namedColors[getRandomNumber()] }}>{namedColors[getRandomNumber()]}.</Text>
-        </View>
 
         {!MyContext.gameStarted ? (
           <>
@@ -42,6 +38,13 @@ const SelectRightColor = ({navigation, route}) => {
           </>
         ) : (
           <>
+
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{  fontSize: 50, color: namedColors[randomNumber(0, 7)], fontWeight: 'bold' }}>
+                {namedColors[randomNumber(0, 7)]}.
+              </Text>
+            </View>
+            
             <FlatList
               data={namedColors}
               renderItem={({item, index}) => <Item title='' bgcolor={item} />}

@@ -5,13 +5,15 @@ import globalStyleSheet from '../styles/Stylesheet'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
 import UserContext from '../context/Context'
+import {randomNumber} from '../Helper/Helper'
+import TickColorComponent from '../OtherComponents/TickColorComponent'
 
 const FindLargestNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext);
 
-  const randomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
+  // const randomNumber = (min, max) => {
+  //   return Math.floor(Math.random() * (max - min + 1)) + min
+  // }
 
   const [leftVal, setLeftVal] = useState(randomNumber(0, 99))
   const [rightVal, setRightVal] = useState(randomNumber(0, 99))
@@ -21,7 +23,7 @@ const FindLargestNumber = ({ navigation, route }) => {
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
   const [second, setSecond] = useState(50)
-  const [tickColor, setTickColor] = useState(null)
+  // const [tickColor, setTickColor] = useState(null)
 
   useEffect(() => {
     let intervalId = null
@@ -44,7 +46,7 @@ const FindLargestNumber = ({ navigation, route }) => {
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
-      setTickColor(null)
+      MyContext.setTickColor(null)
     }, 200)
   }
 
@@ -55,19 +57,19 @@ const FindLargestNumber = ({ navigation, route }) => {
     if (button === 'left') {
       if (leftValue > rightValue) {
         setRightAnswer(prev => prev + 1)
-        setTickColor('green')
+        MyContext.setTickColor('green')
         setTickColorAfterChange()
       } else {
-        setTickColor('red')
+        MyContext.setTickColor('red')
         setTickColorAfterChange()
       }
     } else {
       if (leftValue < rightValue) {
         setRightAnswer(prev => prev + 1)
-        setTickColor('green')
+        MyContext.setTickColor('green')
         setTickColorAfterChange()
       } else {
-        setTickColor('red')
+        MyContext.setTickColor('red')
         setTickColorAfterChange()
       }
     }
@@ -92,7 +94,8 @@ const FindLargestNumber = ({ navigation, route }) => {
             <View style={styles.timer}>
               <Text style={styles.timerText}>00:{second}</Text>
             </View>
-            <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View>
+            {/* <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View> */}
+            <TickColorComponent/>
             <View style={styles.gameStartedView}>
               <View>
                 <View style={styles.numberButtonView}>
