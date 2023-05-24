@@ -12,10 +12,11 @@ const Stack = createNativeStackNavigator()
 function App() {
   const [gameStarted, setIsGameStarted] = useState(false)
   const [tickColor, setTickColor] = useState(null)
+  const [second, setSecond] = useState(5)
   
   return (
     <NavigationContainer>
-      <UserContext.Provider value={{ gameStarted, setIsGameStarted, tickColor, setTickColor }}>
+      <UserContext.Provider value={{ gameStarted, setIsGameStarted, tickColor, setTickColor, second , setSecond }}>
 
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

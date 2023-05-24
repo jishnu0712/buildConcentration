@@ -5,8 +5,9 @@ import globalStyleSheet from '../styles/Stylesheet'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
 import UserContext from '../context/Context'
-import {randomNumber} from '../Helper/Helper'
+import { randomNumber } from '../Helper/Helper'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import TimerComponent from '../OtherComponents/TimerComponent'
 
 const FindLargestNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext);
@@ -22,27 +23,10 @@ const FindLargestNumber = ({ navigation, route }) => {
   const [rightValue, setRightValue] = useState(leftVal === rightVal ? rightVal + 1 : rightVal)
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
-  const [second, setSecond] = useState(50)
+
   // const [tickColor, setTickColor] = useState(null)
 
-  useEffect(() => {
-    let intervalId = null
-
-    if (MyContext.gameStarted) {
-      intervalId = setInterval(() => {
-        setSecond(prevSecond => prevSecond - 1)
-      }, 1000)
-    }
-
-    if (second === 0) {
-      clearInterval(intervalId)
-      navigation.navigate('Result', { ...route, totalAnswered: totalAnswered, rightAnswer: rightAnswer })
-    }
-
-    return () => {
-      clearInterval(intervalId)
-    }
-  }, [MyContext.gameStarted, second])
+  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -51,7 +35,7 @@ const FindLargestNumber = ({ navigation, route }) => {
   }
 
   const changeNumber = button => {
-    if (second === 0) {
+    if (MyContext.second === 0) {
       return false
     }
     if (button === 'left') {
@@ -84,18 +68,18 @@ const FindLargestNumber = ({ navigation, route }) => {
     <>
       <View style={globalStyleSheet.mainArea}>
         <ExitComponent navigation={navigation} />
-        
+
         {!MyContext.gameStarted ? (
           <>
-              <StartButtonComponent navigation={navigation} route={route}/>
+            <StartButtonComponent navigation={navigation} route={route} />
           </>
         ) : (
           <>
             <View style={styles.timer}>
-              <Text style={styles.timerText}>00:{second}</Text>
+              <Text style={styles.timerText}>00:{MyContext.second}</Text>
             </View>
             {/* <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View> */}
-            <TickColorComponent/>
+            <TickColorComponent />
             <View style={styles.gameStartedView}>
               <View>
                 <View style={styles.numberButtonView}>
