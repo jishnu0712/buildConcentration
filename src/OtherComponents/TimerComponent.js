@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../context/Context'
+import { randomNumber } from '../Helper/Helper'
+
 
 
 const TimerComponent = (navigation, route, totalAnswered, rightAnswer) => {
@@ -10,6 +12,8 @@ const TimerComponent = (navigation, route, totalAnswered, rightAnswer) => {
         if (MyContext.gameStarted) {
             intervalId = setInterval(() => {
                 MyContext.setSecond(prevSecond => prevSecond - 1)
+                // MyContext.setColorIndex(randomNumber(0, namedColors.length - 1))
+                
             }, 1000)
         }
 

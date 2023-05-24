@@ -1,26 +1,36 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import UserContext from '../context/Context'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
 import { randomNumber } from '../Helper/Helper'
+import TimerComponent from '../OtherComponents/TimerComponent'
 
 
 
 const SelectRightColor = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
   const namedColors = ["blue", "green", "orange", "purple", "red", "yellow",]
+  let [textColor, setColorIndex] = useState(0)
+  const [rightAnswer, setRightAnswer] = useState(0)
+  const [totalAnswered, setTotalAnswered] = useState(0)
 
   const shuffleArray = (array) => {
     array.sort(() => Math.random() - 0.5);
   }
+  console.log('whole page');
+  useEffect(() => {
+    console.log('effect')
+    shuffleArray(namedColors)
+    setColorIndex(namedColors[randomNumber(0, 5)])
+  }, [totalAnswered])
+  
 
-  shuffleArray(namedColors)
-  const [colorIndex, setColorIndex] = useState(randomNumber(0, namedColors.length - 1))
+  // const [colorIndex, setColorIndex] = useState(randomNumber(0, namedColors.length - 1))
 
-  const [rightAnswer, setRightAnswer] = useState(0)
-  const [totalAnswered, setTotalAnswered] = useState(0)
-
+  
+  
+  TimerComponent(navigation, route, totalAnswered, rightAnswer)
   const tapColor = (index, bgcolor) => {
     // console.log('jar opor tap hocche   00', bgcolor);
     // console.log('this is ans          ', namedColors[index])
@@ -36,7 +46,7 @@ const SelectRightColor = ({ navigation, route }) => {
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
-  const textColor = namedColors[randomNumber(0, 5)]
+  
 
   return (
     <>
@@ -51,7 +61,7 @@ const SelectRightColor = ({ navigation, route }) => {
 
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ fontSize: 50, color: textColor, fontWeight: 'bold' }}>
-              {namedColors[colorIndex].charAt(0).toUpperCase() + namedColors[colorIndex].slice(1, 20)}
+              {namedColors[MyContext.colorIndex].charAt(0).toUpperCase() + namedColors[MyContext.colorIndex].slice(1, 20)}
              
             </Text>
           </View>
