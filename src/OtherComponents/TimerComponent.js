@@ -6,6 +6,7 @@ import { randomNumber } from '../Helper/Helper'
 
 const TimerComponent = (navigation, route, totalAnswered, rightAnswer) => {
     const MyContext = useContext(UserContext);
+    const timer = require('../json/Timer.json')
     useEffect(() => {
         let intervalId = null
 
@@ -18,6 +19,8 @@ const TimerComponent = (navigation, route, totalAnswered, rightAnswer) => {
         }
 
         if (MyContext.second === 0) {
+            MyContext.setIsGameStarted(false)
+            MyContext.setSecond(timer.timer)
             clearInterval(intervalId)
             navigation.navigate('Result', { ...route, totalAnswered: totalAnswered, rightAnswer: rightAnswer })
         }

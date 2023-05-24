@@ -6,11 +6,12 @@ import UserContext from '../context/Context'
 const HomeBackButtonHandler = () => {
   const MyContext = useContext(UserContext);
   const navigation = useNavigation()
+  const timer = require('../json/Timer.json')
 
   useEffect(() => {
-    // console.log(MyContext)
     const backAction = () => {
       MyContext.setIsGameStarted(false)
+      MyContext.setSecond(timer.timer)
       navigation.popToTop()
       return true
     }

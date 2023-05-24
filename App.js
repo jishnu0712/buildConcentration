@@ -14,7 +14,8 @@ const Stack = createNativeStackNavigator()
 function App() {
   const [gameStarted, setIsGameStarted] = useState(false)
   const [tickColor, setTickColor] = useState(null)
-  const [second, setSecond] = useState(5)
+  const timer = require('./src/json/Timer.json')
+  const [second, setSecond] = useState(timer.timer)
   const [colorIndex, setColorIndex] = useState(0)
 
 

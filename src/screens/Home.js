@@ -6,8 +6,9 @@ import UserContext from '../context/Context'
 
 
 const Home = ({ navigation }) => {
-  const myContext = useContext(UserContext)
+  const MyContext = useContext(UserContext)
   const gamesList = require('../json/GamesList.json')
+  // MyContext.setTickColor(null)
   return (
     <View style={globalStyleSheet.mainArea}>
       <Text style={globalStyleSheet.headerTextStyle}>Excercises.</Text>

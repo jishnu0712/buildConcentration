@@ -5,9 +5,11 @@ import { useContext } from 'react'
 const ExitComponent= ({navigation}) => {
     const crossIcon = require('../images/crossIcon.png')
     const MyContext = useContext(UserContext);
+    const timer = require('../json/Timer.json')
 
     const GoBack = () => {
         MyContext.setIsGameStarted(false)
+        MyContext.setSecond(timer.timer)
         navigation.goBack()
       }
     return (

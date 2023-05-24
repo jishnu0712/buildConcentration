@@ -8,9 +8,10 @@ import UserContext from '../context/Context'
 import { randomNumber } from '../Helper/Helper'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
 import TimerComponent from '../OtherComponents/TimerComponent'
-
+import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 const FindLargestNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext);
+  
 
   // const randomNumber = (min, max) => {
   //   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -23,8 +24,6 @@ const FindLargestNumber = ({ navigation, route }) => {
   const [rightValue, setRightValue] = useState(leftVal === rightVal ? rightVal + 1 : rightVal)
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
-
-  // const [tickColor, setTickColor] = useState(null)
 
   TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
@@ -75,10 +74,7 @@ const FindLargestNumber = ({ navigation, route }) => {
           </>
         ) : (
           <>
-            <View style={styles.timer}>
-              <Text style={styles.timerText}>00:{MyContext.second}</Text>
-            </View>
-            {/* <View style={{ backgroundColor: tickColor, width: 20, height: 20, borderRadius: 50 }}></View> */}
+            <TimerViewComponent/>
             <TickColorComponent />
             <View style={styles.gameStartedView}>
               <View>
