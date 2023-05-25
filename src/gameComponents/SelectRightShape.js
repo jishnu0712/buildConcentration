@@ -7,20 +7,28 @@ import { randomNumber, shuffleArray } from '../Helper/Helper'
 import TimerComponent from '../OtherComponents/TimerComponent'
 import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
-
+// Import all the images statically
+import Image1 from '../images/shapes/1.png';
+import Image2 from '../images/shapes/2.png';
+import Image3 from '../images/shapes/3.png';
+import Image4 from '../images/shapes/4.png';
+import Image5 from '../images/shapes/5.png';
+import Image6 from '../images/shapes/6.png';
+import Image7 from '../images/shapes/7.png';
+import Image8 from '../images/shapes/8.png';
+import Image9 from '../images/shapes/9.png';
 
 const SelectRightNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
-  const [Numbers, setNumbers] = useState(['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png'])
-  const [RandIndex, setRandIndex] = useState(randomNumber(0, Numbers.length - 1))
+  const [Images, setImages] = useState([Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9])
+  const [RandIndex, setRandIndex] = useState(randomNumber(0, Images.length - 1))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
-
   useEffect(() => {
-    setNumbers(prev => shuffleArray(prev))
+    setImages(prev => shuffleArray(prev))
   }, [])
 
-  // TimerComponent(navigation, route, totalAnswered, rightAnswer)
+  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -28,8 +36,8 @@ const SelectRightNumber = ({ navigation, route }) => {
     }, 200)
   }
 
-  const tapNumber = (index, bgcolor) => {
-    if (bgcolor === Numbers[RandIndex]) {
+  const tapShapes = (image) => {
+    if (image === Images[RandIndex]) {
       setRightAnswer(prev => prev + 1)
       MyContext.setTickColor('green')
       setTickColorAfterChange()
@@ -38,13 +46,13 @@ const SelectRightNumber = ({ navigation, route }) => {
       setTickColorAfterChange()
     }
     setTotalAnswered(prev => prev + 1)
-    setRandIndex(randomNumber(0, Numbers.length - 1))
-    setNumbers(prev => shuffleArray(prev))
+    setRandIndex(randomNumber(0, Images.length - 1))
+    setImages(prev => shuffleArray(prev))
   }
 
-  const Item = ({ title, bgcolor, index }) => (
-    <TouchableOpacity onPress={() => tapNumber(index, bgcolor)} style={[styles.item,]}>
-      <Text style={styles.title}>{title}</Text>
+  const Item = ({ title, image }) => (
+    <TouchableOpacity onPress={() => tapShapes(image)} style={[styles.item,]}>
+      <Image source={title} style={styles.randomImages}/>
     </TouchableOpacity>
   )
 
@@ -64,16 +72,13 @@ const SelectRightNumber = ({ navigation, route }) => {
             <TickColorComponent />
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
               <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
-                {/* <Image source={ require(`../images/shapes/${Numbers[RandIndex]}`) }/>  */}
-                <Image source={ require(`../images/shapes/ssss.png`) }/> 
-                {/* {Numbers[RandIndex]} */}
-
+              <Image source={Images[RandIndex]} style={{ width: 100, height: 100 }}/>
               </Text>
             </View>
 
             <FlatList
-              data={Numbers}
-              renderItem={({ item, index }) => <Item title={item} bgcolor={item} index={index} />
+              data={Images}
+              renderItem={({ item, index }) => <Item title={item} image={item} index={index} />
               }
               numColumns={3}
             />
@@ -99,7 +104,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
+  randomImages: {
+    width: 65,
+    height: 65
+  }
 })
-
 
 export default SelectRightNumber
