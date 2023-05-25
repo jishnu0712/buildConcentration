@@ -52,7 +52,7 @@ const SelectRightNumber = ({ navigation, route }) => {
 
   const Item = ({ title, image }) => (
     <TouchableOpacity onPress={() => tapShapes(image)} style={[styles.item,]}>
-      <Image source={title} style={styles.randomImages}/>
+      <Image source={title} style={styles.randomImages} />
     </TouchableOpacity>
   )
 
@@ -70,10 +70,8 @@ const SelectRightNumber = ({ navigation, route }) => {
           <>
             <TimerViewComponent />
             <TickColorComponent />
-            <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
-              <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
-              <Image source={Images[RandIndex]} style={{ width: 100, height: 100 }}/>
-              </Text>
+            <View style={{ alignItems: 'center', marginBottom: 24 }}>
+              <Image source={Images[RandIndex]} style={{ width: 100, height: 100, }} />
             </View>
 
             <FlatList
