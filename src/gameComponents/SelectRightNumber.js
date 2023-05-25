@@ -11,7 +11,7 @@ import TickColorComponent from '../OtherComponents/TickColorComponent'
 
 const SelectRightNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
-  const [Numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9])  
+  const [Numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9])
   const [RandIndex, setRandIndex] = useState(randomNumber(0, 5))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
@@ -19,7 +19,7 @@ const SelectRightNumber = ({ navigation, route }) => {
   useEffect(() => {
     setNumbers(prev => shuffleArray(prev))
   }, [])
-  
+
   TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
@@ -29,11 +29,11 @@ const SelectRightNumber = ({ navigation, route }) => {
   }
 
   const tapNumber = (index, bgcolor) => {
-    if(bgcolor === Numbers[RandIndex]){
+    if (bgcolor === Numbers[RandIndex]) {
       setRightAnswer(prev => prev + 1)
       MyContext.setTickColor('green')
       setTickColorAfterChange()
-    }else{
+    } else {
       MyContext.setTickColor('red')
       setTickColorAfterChange()
     }
@@ -47,36 +47,36 @@ const SelectRightNumber = ({ navigation, route }) => {
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
-  
+
 
   return (
     <>
-    <View style={{ flex: 1,  }}>
-      <ExitComponent navigation={navigation} />
+      <View style={{ flex: 1, }}>
+        <ExitComponent navigation={navigation} />
 
-      {!MyContext.gameStarted ? (
-        <>
-          <StartButtonComponent navigation={navigation} route={route} />
-        </>
-      ) : (
-        <>
-          <TimerViewComponent/>
-          <TickColorComponent />
-          <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
-            <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
-              {Numbers[RandIndex]}
-             
-            </Text>
-          </View>
+        {!MyContext.gameStarted ? (
+          <>
+            <StartButtonComponent navigation={navigation} route={route} />
+          </>
+        ) : (
+          <>
+            <TimerViewComponent />
+            <TickColorComponent />
+            <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
+              <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
+                {Numbers[RandIndex]}
 
-          <FlatList
-            data={Numbers}
-            renderItem={({ item, index }) => <Item title={item} bgcolor={item} index={index} />
-            }
-            numColumns={3}
-          />
-        </>
-      )}
+              </Text>
+            </View>
+
+            <FlatList
+              data={Numbers}
+              renderItem={({ item, index }) => <Item title={item} bgcolor={item} index={index} />
+              }
+              numColumns={3}
+            />
+          </>
+        )}
       </View>
     </>
   )
