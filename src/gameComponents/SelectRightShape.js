@@ -64,8 +64,9 @@ const SelectRightNumber = ({ navigation, route }) => {
             <TickColorComponent />
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
               <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
-                {/* <Image source={ require(`../images/shapes/${Numbers[RandIndex]}`) }/> */}
-                {Numbers[RandIndex]}
+                {/* <Image source={ require(`../images/shapes/${Numbers[RandIndex]}`) }/>  */}
+                <Image source={ require(`../images/shapes/ssss.png`) }/> 
+                {/* {Numbers[RandIndex]} */}
 
               </Text>
             </View>
