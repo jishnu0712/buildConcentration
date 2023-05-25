@@ -1,4 +1,5 @@
 [
-    {"title" : "Find Largest Number", "subTitle" : "Compare the title and choose the lager one."},
-    {"title" : "Select Right Color", "subTitle" : "Select the text with mentiond color."}
+    {"title" : "Find Largest Number", "subTitle" : "Compare the number and choose the lager one."},
+    {"title" : "Select Right Color", "subTitle" : "Select the color with mentiond text."},
+    {"title" : "Select Right Number", "subTitle" : "Select the right number."}
 ]

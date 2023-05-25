@@ -9,16 +9,15 @@ import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
 
 
-const SelectRightColor = ({ navigation, route }) => {
+const SelectRightNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
-  const [namedColors, setNamedColors] = useState(["blue", "green", "orange", "purple", "red", "yellow",])  
-  const [colorIndex, setColorIndex] = useState(randomNumber(0, 5))
-  const [randIndex, setRandIndex] = useState(randomNumber(0, 5))
+  const [Numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9])  
+  const [RandIndex, setRandIndex] = useState(randomNumber(0, 5))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
 
   useEffect(() => {
-    setNamedColors(prev => shuffleArray(prev))
+    setNumbers(prev => shuffleArray(prev))
   }, [])
   
   TimerComponent(navigation, route, totalAnswered, rightAnswer)
@@ -29,8 +28,8 @@ const SelectRightColor = ({ navigation, route }) => {
     }, 200)
   }
 
-  const tapColor = (index, bgcolor) => {
-    if(bgcolor === namedColors[colorIndex]){
+  const tapNumber = (index, bgcolor) => {
+    if(bgcolor === Numbers[RandIndex]){
       setRightAnswer(prev => prev + 1)
       MyContext.setTickColor('green')
       setTickColorAfterChange()
@@ -39,13 +38,12 @@ const SelectRightColor = ({ navigation, route }) => {
       setTickColorAfterChange()
     }
     setTotalAnswered(prev => prev + 1)
-    setColorIndex(randomNumber(0, 5))
     setRandIndex(randomNumber(0, 5))
-    setNamedColors(prev => shuffleArray(prev))
+    setNumbers(prev => shuffleArray(prev))
   }
 
   const Item = ({ title, bgcolor, index }) => (
-    <TouchableOpacity onPress={() => tapColor(index, bgcolor)} style={[styles.item, { backgroundColor: bgcolor }]}>
+    <TouchableOpacity onPress={() => tapNumber(index, bgcolor)} style={[styles.item,]}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
@@ -65,18 +63,17 @@ const SelectRightColor = ({ navigation, route }) => {
           <TimerViewComponent/>
           <TickColorComponent />
           <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
-            <Text style={{ fontSize: 50, color: namedColors[randIndex], fontWeight: 'bold' }}>
-              {namedColors[colorIndex].charAt(0).toUpperCase() + namedColors[colorIndex].slice(1, 20)}
+            <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
+              {Numbers[RandIndex]}
              
             </Text>
           </View>
 
           <FlatList
-            data={namedColors}
-            renderItem={({ item, index }) => <Item title='' bgcolor={item} index={index} />
+            data={Numbers}
+            renderItem={({ item, index }) => <Item title={item} bgcolor={item} index={index} />
             }
-            keyExtractor={(item, index) => index.toString()}
-            numColumns={2}
+            numColumns={3}
           />
         </>
       )}
@@ -88,14 +85,15 @@ const SelectRightColor = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   item: {
-    // backgroundColor: '#f9c2ff',
     padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
-    width: '42%',
+    width: '26%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4
+    borderRadius: 4,
+    border: 2,
+    borderWidth: 1
 
   },
   title: {
@@ -104,4 +102,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default SelectRightColor
+export default SelectRightNumber

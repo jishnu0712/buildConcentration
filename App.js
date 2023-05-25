@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Game from './src/screens/Game'
 import Result from './src/screens/Result'
 import UserContext from './src/context/Context'
-import { randomNumber } from './src/Helper/Helper'
+// import { randomNumber } from './src/Helper/Helper'
 
 
 const Stack = createNativeStackNavigator()
