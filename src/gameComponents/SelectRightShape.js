@@ -1,4 +1,4 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { useContext, useEffect, useState } from 'react'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import UserContext from '../context/Context'
@@ -11,7 +11,7 @@ import TickColorComponent from '../OtherComponents/TickColorComponent'
 
 const SelectRightNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
-  const [Numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  const [Numbers, setNumbers] = useState(['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png'])
   const [RandIndex, setRandIndex] = useState(randomNumber(0, Numbers.length - 1))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
@@ -20,7 +20,7 @@ const SelectRightNumber = ({ navigation, route }) => {
     setNumbers(prev => shuffleArray(prev))
   }, [])
 
-  TimerComponent(navigation, route, totalAnswered, rightAnswer)
+  // TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -64,6 +64,7 @@ const SelectRightNumber = ({ navigation, route }) => {
             <TickColorComponent />
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
               <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
+                {/* <Image source={ require(`../images/shapes/${Numbers[RandIndex]}`) }/> */}
                 {Numbers[RandIndex]}
 
               </Text>
@@ -81,14 +82,12 @@ const SelectRightNumber = ({ navigation, route }) => {
     </>
   )
 }
-
-
 const styles = StyleSheet.create({
   item: {
     padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
-    width: '26%',
+    width: '25%',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,

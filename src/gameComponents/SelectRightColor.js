@@ -12,8 +12,8 @@ import TickColorComponent from '../OtherComponents/TickColorComponent'
 const SelectRightColor = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
   const [namedColors, setNamedColors] = useState(["blue", "green", "orange", "purple", "red", "yellow",])  
-  const [colorIndex, setColorIndex] = useState(randomNumber(0, 5))
-  const [randIndex, setRandIndex] = useState(randomNumber(0, 5))
+  const [colorIndex, setColorIndex] = useState(randomNumber(0, namedColors.length - 1))
+  const [randIndex, setRandIndex] = useState(randomNumber(0, namedColors.length - 1))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
 
@@ -39,8 +39,8 @@ const SelectRightColor = ({ navigation, route }) => {
       setTickColorAfterChange()
     }
     setTotalAnswered(prev => prev + 1)
-    setColorIndex(randomNumber(0, 5))
-    setRandIndex(randomNumber(0, 5))
+    setColorIndex(randomNumber(0, namedColors.length - 1))
+    setRandIndex(randomNumber(0, namedColors.length - 1))
     setNamedColors(prev => shuffleArray(prev))
   }
 
