@@ -8,17 +8,17 @@ import TimerComponent from '../OtherComponents/TimerComponent'
 import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
 // Import all the images statically
-import Image1 from '../images/shapes/1.png';
-import Image2 from '../images/shapes/2.png';
-import Image3 from '../images/shapes/3.png';
-import Image4 from '../images/shapes/4.png';
-import Image5 from '../images/shapes/5.png';
-import Image6 from '../images/shapes/6.png';
-import Image7 from '../images/shapes/7.png';
-import Image8 from '../images/shapes/8.png';
-import Image9 from '../images/shapes/9.png';
+import Image1 from '../images/internet/1.png';
+import Image2 from '../images/internet/2.png';
+import Image3 from '../images/internet/3.png';
+import Image4 from '../images/internet/4.png';
+import Image5 from '../images/internet/5.png';
+import Image6 from '../images/internet/6.png';
+import Image7 from '../images/internet/7.png';
+import Image8 from '../images/internet/8.png';
+import Image9 from '../images/internet/9.png';
 
-const SelectRightShape = ({ navigation, route }) => {
+const SelectIdenticalImage = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
   const [Images, setImages] = useState([Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9])
   const [RandIndex, setRandIndex] = useState(randomNumber(0, Images.length - 1))
@@ -88,7 +88,7 @@ const SelectRightShape = ({ navigation, route }) => {
 }
 const styles = StyleSheet.create({
   item: {
-    padding: 10,
+    padding: 8,
     marginVertical: 8,
     marginHorizontal: 16,
     width: '25%',
@@ -103,9 +103,9 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   randomImages: {
-    width: 65,
-    height: 65
+    width: 60,
+    height: 60
   }
 })
 
-export default SelectRightShape
+export default SelectIdenticalImage

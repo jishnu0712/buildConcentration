@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import HomeBackButtonHandler from '../OtherComponents/HomeBackButtonHandler'
-import badResult from '../images/badResult.jpeg'
+import badResult from '../images/badResult.png'
 
 const Result = ({ navigation, route }) => {
   const { rightAnswer, totalAnswered, title, subTitle } = route.params
@@ -11,7 +11,7 @@ const Result = ({ navigation, route }) => {
       <Text style={styles.resultTitle}>Result</Text>
       <View style={styles.container}>
         <View >
-          <Image source={badResult} style={{ alignSelf: 'center' }} />
+          <Image source={badResult} style={{ alignSelf: 'center', width: 150, height: 150 }} />
           <Text style={styles.resultFont}>Game Title : {title}</Text>
           <Text style={styles.resultFont}>Total Answered : {totalAnswered}</Text>
           <Text style={styles.resultFont}>Right Answer : {rightAnswer}</Text>

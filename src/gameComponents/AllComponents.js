@@ -3,13 +3,15 @@ import SelectRightColor from './SelectRightColor'
 import SelectRightNumber from './SelectRightNumber'
 import SelectRightShape from './SelectRightShape'
 import Calculux from './Calculux'
+import SelectIdenticalImage from './SelectIdenticalImage'
 
 const AllComponents = {
     FindLargestNumber,
     SelectRightColor,
     SelectRightNumber,
     SelectRightShape,
-    Calculux
+    Calculux,
+    SelectIdenticalImage
 }
 
 export default AllComponents

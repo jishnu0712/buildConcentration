@@ -3,5 +3,6 @@
     {"title" : "Select Right Color", "subTitle" : "Select the color with mentiond text."},
     {"title" : "Select Right Number", "subTitle" : "Select the right number."},
     {"title" : "Select Right Shape", "subTitle" : "Select the right shape."},
-    {"title" : "Calculux", "subTitle" : "Make calculation speed faster"}
+    {"title" : "Calculux", "subTitle" : "Make calculation speed faster"},
+    {"title" : "Select Identical Image", "subTitle" : "Select the right identical image."}
 ]
