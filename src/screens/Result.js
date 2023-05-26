@@ -11,7 +11,7 @@ const Result = ({ navigation, route }) => {
       <Text style={styles.resultTitle}>Result</Text>
       <View style={styles.container}>
         <View >
-          <Image source={badResult} style={{ alignSelf: 'center' }} />
+          <Image source={badResult} style={{ alignSelf: 'center', width: 150, height: 150 }} />
           <Text style={styles.resultFont}>Game Title : {title}</Text>
           <Text style={styles.resultFont}>Total Answered : {totalAnswered}</Text>
           <Text style={styles.resultFont}>Right Answer : {rightAnswer}</Text>
