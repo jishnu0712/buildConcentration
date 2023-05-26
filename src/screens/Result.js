@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import HomeBackButtonHandler from '../OtherComponents/HomeBackButtonHandler'
-import badResult from '../images/badResult.jpeg'
+import badResult from '../images/badResult.png'
 
 const Result = ({ navigation, route }) => {
   const { rightAnswer, totalAnswered, title, subTitle } = route.params
