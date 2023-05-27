@@ -1,67 +1,67 @@
-import { useContext, useEffect, useState } from 'react';
-import { StyleSheet, Text, FlatList, TouchableOpacity, View } from 'react-native';
-import StartButtonComponent from '../OtherComponents/StartButtonComponent';
-import TickColorComponent from '../OtherComponents/TickColorComponent';
-import { randomNumber, shuffleArray } from '../Helper/Helper';
-import ExitComponent from '../OtherComponents/ExitComponent';
-import globalStyleSheet from '../styles/Stylesheet';
-import TimerNew from '../OtherComponents/TimerNew';
-import UserContext from '../context/Context';
+import { useContext, useEffect, useState } from 'react'
+import { StyleSheet, Text, FlatList, TouchableOpacity, View } from 'react-native'
+import StartButtonComponent from '../OtherComponents/StartButtonComponent'
+import TickColorComponent from '../OtherComponents/TickColorComponent'
+import { randomNumber, shuffleArray } from '../Helper/Helper'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import globalStyleSheet from '../styles/Stylesheet'
+import TimerNew from '../OtherComponents/TimerNew'
+import UserContext from '../context/Context'
 
 const Calculux = ({ navigation, route }) => {
-    const MyContext = useContext(UserContext);
-    const [tickColor, setTickColor] = useState(null);
-    const [rightAnswer, setRightAnswer] = useState(0);
-    const [totalAnswered, setTotalAnswered] = useState(0);
-    const [question, setQuestion] = useState('');
-    const [optionsArray, setOptionsArray] = useState([]);
-    const [correctAns, setCorrectAns] = useState();
+    const MyContext = useContext(UserContext)
+    const [tickColor, setTickColor] = useState(null)
+    const [rightAnswer, setRightAnswer] = useState(0)
+    const [totalAnswered, setTotalAnswered] = useState(0)
+    const [question, setQuestion] = useState('')
+    const [optionsArray, setOptionsArray] = useState([])
+    const [correctAns, setCorrectAns] = useState()
 
     useEffect(() => {
         const generateQuestion = () => {
-            const a = randomNumber(1, 99);
-            const b = randomNumber(1, 99);
-            const operators = ['+', '-', '*'];
-            const question = `${a} ${operators[randomNumber(0, operators.length - 1)]} ${b}`;
+            const a = randomNumber(1, 99)
+            const b = randomNumber(1, 99)
+            const operators = ['+', '-', '*']
+            const question = `${a} ${operators[randomNumber(0, operators.length - 1)]} ${b}`
             const tempAns = eval(question)
-            setCorrectAns(tempAns);
+            setCorrectAns(tempAns)
 
-            const optionsArray = [tempAns, tempAns - 1, tempAns + 1, tempAns - 2];
-            shuffleArray(optionsArray);
+            const optionsArray = [tempAns, tempAns - 1, tempAns + 1, tempAns - 2]
+            shuffleArray(optionsArray)
 
-            setQuestion(question);
-            setOptionsArray(optionsArray);
-        };
+            setQuestion(question)
+            setOptionsArray(optionsArray)
+        }
 
-        generateQuestion();
-    }, [totalAnswered]);
+        generateQuestion()
+    }, [totalAnswered])
 
     const setTickColorAfterChange = () => {
         setTimeout(() => {
-            setTickColor(null);
-        }, 200);
-    };
+            setTickColor(null)
+        }, 200)
+    }
 
     const renderItem = (item) => {
-        const optionVal = item.item;
+        const optionVal = item.item
         return (
             <TouchableOpacity style={styles.ans} onPress={() => tapAnswer(optionVal)}>
                 <Text style={styles.answerText}>{optionVal}</Text>
             </TouchableOpacity>
-        );
-    };
+        )
+    }
 
     const tapAnswer = (option) => {
         if (option === correctAns) {
-            setRightAnswer((prev) => prev + 1);
-            setTickColor('green');
-            setTickColorAfterChange();
+            setRightAnswer((prev) => prev + 1)
+            setTickColor('green')
+            setTickColorAfterChange()
         } else {
-            setTickColor('red');
-            setTickColorAfterChange();
+            setTickColor('red')
+            setTickColorAfterChange()
         }
-        setTotalAnswered((prev) => prev + 1);
-    };
+        setTotalAnswered((prev) => prev + 1)
+    }
 
     return (
         <>
@@ -86,10 +86,10 @@ const Calculux = ({ navigation, route }) => {
                 )}
             </View>
         </>
-    );
-};
+    )
+}
 
-export default Calculux;
+export default Calculux
 
 
 const styles = StyleSheet.create({

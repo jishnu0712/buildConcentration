@@ -1,13 +1,13 @@
 import { Text, View, Linking, TouchableOpacity } from 'react-native'
 import ExitComponent from '../OtherComponents/ExitComponent'
 import globalStyleSheet from '../styles/Stylesheet'
-import DeviceInfo from 'react-native-device-info';
+import DeviceInfo from 'react-native-device-info'
 import { shareFile } from '../Helper/Helper'
 
 
 
 const Settings = ({navigation}) => {
-    const packageName = DeviceInfo.getBundleId();
+    const packageName = DeviceInfo.getBundleId()
     const playStoreURL = `https://play.google.com/store/apps/details?id=${packageName}`
     const sharableText = `An awosome concentration building App.\nDownload now\n${playStoreURL}`
 

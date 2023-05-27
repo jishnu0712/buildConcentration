@@ -64,6 +64,24 @@ const globalStyleSheet = StyleSheet.create({
   },
   settingListView: {
     margin: 10
+  },
+  resultBottomButtonView: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  resultBottomButton: {
+    padding: 14,
+    backgroundColor: 'black',
+    borderRadius: 6,
+    width: '48%',
+    alignItems: 'center'
+  },
+  resultBottomButtonText: {
+    color: 'white',
+    fontFamily: 'serif',
+    fontWeight: 'bold',
+    fontSize: 16
   }
 })
 

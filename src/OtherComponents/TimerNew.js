@@ -6,7 +6,7 @@ import styles from '../styles/FindLargestNumStyleSheet'
 const timer = require('../json/Timer.json')
 
 const TimerNew = ({navigation, route, totalAnswered, rightAnswer}) => {
-  const MyContext = useContext(UserContext);
+  const MyContext = useContext(UserContext)
   const [second, setSecond] = useState(timer.timer)
 
   useEffect(() => {

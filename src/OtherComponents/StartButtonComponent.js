@@ -5,7 +5,7 @@ import globalStyleSheet from '../styles/Stylesheet'
 import styles from '../styles/FindLargestNumStyleSheet'
 
 const StartButtonComponent = ({navigation, route}) => {
-    const MyContext = useContext(UserContext);
+    const MyContext = useContext(UserContext)
     const startGame = () => {
         MyContext.setIsGameStarted(prev => !prev)
     }

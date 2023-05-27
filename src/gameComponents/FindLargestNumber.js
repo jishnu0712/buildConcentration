@@ -9,7 +9,7 @@ import TimerNew from '../OtherComponents/TimerNew'
 import { randomNumber } from '../Helper/Helper'
 import UserContext from '../context/Context'
 const FindLargestNumber = ({ navigation, route }) => {
-  const MyContext = useContext(UserContext);
+  const MyContext = useContext(UserContext)
 
   const leftVal = randomNumber(0, 99)
   const rightVal = randomNumber(0, 99)

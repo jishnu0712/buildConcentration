@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import UserContext from '../context/Context'
 
 const HomeBackButtonHandler = () => {
-  const MyContext = useContext(UserContext);
+  const MyContext = useContext(UserContext)
   const navigation = useNavigation()
   const timer = require('../json/Timer.json')
 

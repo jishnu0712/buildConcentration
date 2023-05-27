@@ -7,12 +7,9 @@ const ExitComponentsStyle = StyleSheet.create({
     },
     exitView: {
       alignItems: 'flex-end',
-      marginHorizontal: 2,
-      marginVertical: 2,
-      padding: 10,
-      backgroundColor: '#f5f8f9'
+      paddingTop: 10,
     },
     
-  });
+  })
 
 export default ExitComponentsStyle
