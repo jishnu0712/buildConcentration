@@ -1,27 +1,24 @@
-import { Text, TouchableOpacity, View } from 'react-native'
-import React, { useState, useEffect, useContext } from 'react'
-import styles from '../styles/FindLargestNumStyleSheet'
-import globalStyleSheet from '../styles/Stylesheet'
-import ExitComponent from '../OtherComponents/ExitComponent'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-import UserContext from '../context/Context'
-import { randomNumber } from '../Helper/Helper'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
-import TimerComponent from '../OtherComponents/TimerComponent'
-import TimerViewComponent from '../OtherComponents/TimerViewComponent'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import { Text, TouchableOpacity, View } from 'react-native'
+import styles from '../styles/FindLargestNumStyleSheet'
+import React, { useState, useContext } from 'react'
+import globalStyleSheet from '../styles/Stylesheet'
+import TimerNew from '../OtherComponents/TimerNew'
+import { randomNumber } from '../Helper/Helper'
+import UserContext from '../context/Context'
 const FindLargestNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext);
 
-  const [leftVal, setLeftVal] = useState(randomNumber(0, 99))
-  const [rightVal, setRightVal] = useState(randomNumber(0, 99))
+  const leftVal = randomNumber(0, 99)
+  const rightVal = randomNumber(0, 99)
 
   const [leftValue, setLeftValue] = useState(leftVal)
   const [rightValue, setRightValue] = useState(leftVal === rightVal ? rightVal + 1 : rightVal)
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
   const [tickColor, setTickColor] = useState(null)
-
-  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -70,7 +67,7 @@ const FindLargestNumber = ({ navigation, route }) => {
           </>
         ) : (
           <>
-            <TimerViewComponent />
+            <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
             <TickColorComponent tickColor = {tickColor}/>
             <View style={styles.gameStartedView}>
               <View>

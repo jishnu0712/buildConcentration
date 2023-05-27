@@ -1,14 +1,12 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
-import { useContext, useEffect, useState } from 'react'
-import ExitComponent from '../OtherComponents/ExitComponent'
-import UserContext from '../context/Context'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-import { randomNumber, shuffleArray } from '../Helper/Helper'
-import TimerComponent from '../OtherComponents/TimerComponent'
-import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import { randomNumber, shuffleArray } from '../Helper/Helper'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import { useContext, useEffect, useState } from 'react'
+import globalStyleSheet from '../styles/Stylesheet'
 import TimerNew from '../OtherComponents/TimerNew'
-
+import UserContext from '../context/Context'
 
 const SelectRightNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext)
@@ -28,7 +26,7 @@ const SelectRightNumber = ({ navigation, route }) => {
     }, 200)
   }
 
-  const tapNumber = (index, bgcolor) => {
+  const tapNumber = (bgcolor) => {
     if (bgcolor === Numbers[RandIndex]) {
       setRightAnswer(prev => prev + 1)
       setTickColor('green')
@@ -43,7 +41,7 @@ const SelectRightNumber = ({ navigation, route }) => {
   }
 
   const Item = ({ title, bgcolor, index }) => (
-    <TouchableOpacity onPress={() => tapNumber(index, bgcolor)} style={[styles.item,]}>
+    <TouchableOpacity onPress={() => tapNumber(bgcolor)} style={[styles.item,]}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
@@ -51,7 +49,7 @@ const SelectRightNumber = ({ navigation, route }) => {
 
   return (
     <>
-      <View style={{ flex: 1, }}>
+      <View style={globalStyleSheet.mainArea}>
         <ExitComponent navigation={navigation} />
 
         {!MyContext.gameStarted ? (

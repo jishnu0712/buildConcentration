@@ -1,12 +1,12 @@
-import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { useContext, useEffect, useState } from 'react'
-import ExitComponent from '../OtherComponents/ExitComponent'
-import UserContext from '../context/Context'
+import { View, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-import { randomNumber, shuffleArray } from '../Helper/Helper'
-import TimerComponent from '../OtherComponents/TimerComponent'
-import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import { randomNumber, shuffleArray } from '../Helper/Helper'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import { useContext, useEffect, useState } from 'react'
+import globalStyleSheet from '../styles/Stylesheet'
+import TimerNew from '../OtherComponents/TimerNew'
+import UserContext from '../context/Context'
 // Import all the images statically
 import Image1 from '../images/internet/1.png';
 import Image2 from '../images/internet/2.png';
@@ -30,7 +30,6 @@ const SelectIdenticalImage = ({ navigation, route }) => {
     setImages(prev => shuffleArray(prev))
   }, [])
 
-  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -61,7 +60,7 @@ const SelectIdenticalImage = ({ navigation, route }) => {
 
   return (
     <>
-      <View style={{ flex: 1, }}>
+      <View style={globalStyleSheet.mainArea}>
         <ExitComponent navigation={navigation} />
 
         {!MyContext.gameStarted ? (
@@ -70,7 +69,7 @@ const SelectIdenticalImage = ({ navigation, route }) => {
           </>
         ) : (
           <>
-            <TimerViewComponent />
+            <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
             <TickColorComponent tickColor = {tickColor}/>
             <View style={{ alignItems: 'center', marginBottom: 24 }}>
               <Image source={Images[RandIndex]} style={{ width: 100, height: 100, }} />

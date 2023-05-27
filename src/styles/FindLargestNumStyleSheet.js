@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
       color: 'black',
       fontWeight: 'bold',
       fontSize: 30,
+      fontFamily: 'serif',
     },
     startButtonView: {
       justifyContent: 'center',
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       height: 100,
+      fontFamily: 'serif',
     },
     timerText: {
       fontWeight: 'bold',

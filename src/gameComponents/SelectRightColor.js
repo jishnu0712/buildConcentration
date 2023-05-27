@@ -1,12 +1,12 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
-import { useContext, useEffect, useState } from 'react'
-import ExitComponent from '../OtherComponents/ExitComponent'
-import UserContext from '../context/Context'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-import { randomNumber, shuffleArray } from '../Helper/Helper'
-import TimerComponent from '../OtherComponents/TimerComponent'
-import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import { randomNumber, shuffleArray } from '../Helper/Helper'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import { useContext, useEffect, useState } from 'react'
+import globalStyleSheet from '../styles/Stylesheet'
+import TimerNew from '../OtherComponents/TimerNew'
+import UserContext from '../context/Context'
 
 
 const SelectRightColor = ({ navigation, route }) => {
@@ -23,7 +23,6 @@ const SelectRightColor = ({ navigation, route }) => {
     setNamedColors(prev => shuffleArray(prev))
   }, [])
   
-  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -55,7 +54,7 @@ const SelectRightColor = ({ navigation, route }) => {
 
   return (
     <>
-    <View style={{ flex: 1,  }}>
+    <View style={globalStyleSheet.mainArea}>
       <ExitComponent navigation={navigation} />
 
       {!MyContext.gameStarted ? (
@@ -64,7 +63,7 @@ const SelectRightColor = ({ navigation, route }) => {
         </>
       ) : (
         <>
-          <TimerViewComponent/>
+          <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
           <TickColorComponent tickColor = {tickColor}/>
           <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
             <Text style={{ fontSize: 50, color: namedColors[randIndex], fontWeight: 'bold' }}>

@@ -1,12 +1,12 @@
 import { StyleSheet, Text, FlatList, TouchableOpacity, View } from 'react-native'
-import { randomNumber, shuffleArray } from '../Helper/Helper'
-import UserContext from '../context/Context'
-import { useContext, useEffect, useState } from 'react'
-import TimerComponent from '../OtherComponents/TimerComponent'
-import ExitComponent from '../OtherComponents/ExitComponent'
 import StartButtonComponent from '../OtherComponents/StartButtonComponent'
-import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import { randomNumber, shuffleArray } from '../Helper/Helper'
+import ExitComponent from '../OtherComponents/ExitComponent'
+import { useContext, useState } from 'react'
+import globalStyleSheet from '../styles/Stylesheet'
+import TimerNew from '../OtherComponents/TimerNew'
+import UserContext from '../context/Context'
 
 
 const Calculux = ({ navigation, route }) => {
@@ -25,8 +25,6 @@ const Calculux = ({ navigation, route }) => {
 
     const [rightAnswer, setRightAnswer] = useState(0)
     const [totalAnswered, setTotalAnswered] = useState(0)
-
-    TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
     const setTickColorAfterChange = () => {
         setTimeout(() => {
@@ -59,44 +57,42 @@ const Calculux = ({ navigation, route }) => {
 
 
     return (
-        // <>
-        //     <View style={{ flex: 1, }}>
-        //         <ExitComponent navigation={navigation} />
+        <>
+            <View style={globalStyleSheet.mainArea}>
+                <ExitComponent navigation={navigation} />
+                {!MyContext.gameStarted ? (
+                    <>
+                        <StartButtonComponent navigation={navigation} route={route} />
+                    </>
+                ) : (
+                    <>
+                        <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
+                        <TickColorComponent tickColor = {tickColor}/>
 
-        //         {!gameStarted ? (
-        //             <>
-        //                 <StartButtonComponent navigation={navigation} route={route} />
-        //             </>
-        //         ) : (
-        //             <>
-        //                 <TimerViewComponent />
-        //                 <TickColorComponent tickColor = {tickColor}/>
-
-        //                 <View style={styles.container}>
-        //                     <Text style={styles.resultTitle}>Calculux</Text>
-        //                     <Text style={styles.question}>{question} = ? </Text>
-        //                     <View style={styles.answerSection}>
-        //                         <FlatList
-        //                             data={optionsArray}
-        //                             renderItem={renderItem}
-        //                         // numColumns={1}
-        //                         />
-        //                     </View>
-        //                 </View>
-        //             </>
-        //         )}
-        //     </View>
-        // </>
-        <View style={styles.container}>
-            <Text style={styles.resultTitle}>Calculux</Text>
-            <Text style={styles.question}>{question} = ? </Text>
-            <View style={styles.answerSection}>
-                <FlatList
-                    data={optionsArray}
-                    renderItem={renderItem}
-                />
+                        <View style={styles.container}>
+                            <Text style={styles.question}>{question} = ? </Text>
+                            <View style={styles.answerSection}>
+                                <FlatList
+                                    data={optionsArray}
+                                    renderItem={renderItem}
+                                    numColumns={1}
+                                />
+                            </View>
+                        </View>
+                    </>
+                )}
             </View>
-        </View>
+        </>
+        // <View style={styles.container}>
+        //     <Text style={styles.resultTitle}>Calculux</Text>
+        //     <Text style={styles.question}>{question} = ? </Text>
+        //     <View style={styles.answerSection}>
+        //         <FlatList
+        //             data={optionsArray}
+        //             renderItem={renderItem}
+        //         />
+        //     </View>
+        // </View>
     )
 }
 
@@ -107,19 +103,20 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontFamily: 'monospace',
         textAlign: 'center',
-        marginTop: 24,
     },
     answerSection: {
-        marginVertical: 32
+        marginTop: 120,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems : 'center'
     },
     ans: {
         padding: 16,
         margin: 8,
+        width: 300,
 
         borderWidth: 1,
         borderColor: '#D8D8D8',
-        paddingVertical: 12,
-        paddingHorizontal: 16,
         borderRadius: 20,
     },
     answerText: {
@@ -139,7 +136,6 @@ const styles = StyleSheet.create({
     container: {
         paddingVertical: 24,
         paddingHorizontal: 16,
-        height: '100%',
         justifyContent: 'space-between',
         margin: 24,
     }

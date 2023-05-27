@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   resultFont: {
     fontWeight: 600,
     fontSize: 16,
-    fontFamily: 'monospace'
+    fontFamily: 'serif',
   },
   container: {
     padding: 24,

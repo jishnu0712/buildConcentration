@@ -2,24 +2,19 @@ import { StyleSheet } from 'react-native'
 
 const globalStyleSheet = StyleSheet.create({
   container: {
-    paddingVertical: 24,
-    paddingHorizontal: 16,
     height: '100%',
-    // justifyContent: 'space-between',
-    margin: 24,
 },
   mainArea: {
     height: '100%',
-    paddingVertical: 16,
     paddingHorizontal: 12,
+    backgroundColor: '#f5f8f9'
   },
   headerTextStyle: {
     fontSize: 32,
     fontWeight: 800,
     color: 'black',
-    fontFamily: 'serif'
+    fontFamily: 'serif',
   },
-  //game screen
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -51,9 +46,24 @@ const globalStyleSheet = StyleSheet.create({
     color: 'black',
     fontSize: 24,
     fontWeight: 400,
+    fontFamily: 'serif',
   },
   descriptionText: {
-    color: 'gray'
+    color: 'gray',
+    fontFamily: 'serif',
+  },
+  settingListTitle : {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'black',
+    fontFamily: 'serif',
+  },
+  settingListSubTitle: {
+    fontSize: 12,
+    fontFamily: 'serif',
+  },
+  settingListView: {
+    margin: 10
   }
 })
 

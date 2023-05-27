@@ -33,7 +33,7 @@ const TimerNew = ({navigation, route, totalAnswered, rightAnswer}) => {
 
   return (
     <View style={styles.timer}>
-        <Text style={styles.timerText}>00:{second.length === 1 ? '0'+second : second}</Text>
+        <Text style={styles.timerText}>00:{second.toString().length === 1 ? '0'+second : second }</Text>
     </View>
   )
 }
