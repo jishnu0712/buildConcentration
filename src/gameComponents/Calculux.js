@@ -65,7 +65,7 @@ const Calculux = ({ navigation, route }) => {
 
     return (
         <>
-            <View style={{...globalStyleSheet.mainArea, borderWidth: 2, borderColor: 'green'}}>
+            <View style={globalStyleSheet.mainArea}>
                 <ExitComponent navigation={navigation} />
                 {!MyContext.gameStarted ? (
                     <>
@@ -76,7 +76,7 @@ const Calculux = ({ navigation, route }) => {
                         <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
                         <TickColorComponent tickColor={tickColor} />
 
-                        <View style={{...styles.container,  borderWidth: 2, borderColor: 'red'}}>
+                        <View style={styles.container}>
                             <Text style={styles.question}>{question} = ? </Text>
                             <View style={styles.answerSection}>
                                 <FlatList data={optionsArray} renderItem={renderItem} numColumns={1} />
@@ -106,8 +106,9 @@ const styles = StyleSheet.create({
     },
     ans: {
         padding: 16,
-        margin: 8,
-        width: 300,
+        marginVertical: 8,
+        width: 250,
+        flex: 1,
 
         borderWidth: 1,
         borderColor: '#D8D8D8',

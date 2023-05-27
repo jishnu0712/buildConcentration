@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const globalStyleSheet = StyleSheet.create({
   container: {
     height: '100%',
-},
+  },
   mainArea: {
     height: '100%',
     paddingHorizontal: 12,
@@ -52,7 +52,7 @@ const globalStyleSheet = StyleSheet.create({
     color: 'gray',
     fontFamily: 'serif',
   },
-  settingListTitle : {
+  settingListTitle: {
     fontWeight: 'bold',
     fontSize: 20,
     color: 'black',

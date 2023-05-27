@@ -9,10 +9,11 @@ const Result = ({ navigation, route }) => {
   return (
     <>
       <HomeBackButtonHandler />
-      <Text style={globalStyleSheet.headerTextStyle}>Result</Text>
+
       <View style={styles.container}>
+        <Text style={globalStyleSheet.headerTextStyle}>Result</Text>
+        <Image source={badResult} style={{ alignSelf: 'center', width: 150, height: 150 }} />
         <View >
-          <Image source={badResult} style={{ alignSelf: 'center', width: 150, height: 150 }} />
           <Text style={styles.resultFont}>Game Title : {title}</Text>
           <Text style={styles.resultFont}>Total Answered : {totalAnswered}</Text>
           <Text style={styles.resultFont}>Right Answer : {rightAnswer}</Text>
@@ -31,11 +32,12 @@ const styles = StyleSheet.create({
     fontWeight: 600,
     fontSize: 16,
     fontFamily: 'serif',
+    alignSelf: 'center'
   },
   container: {
     padding: 24,
     height: '80%',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     margin: 24,
   }
 })
