@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Game from './src/screens/Game'
 import Result from './src/screens/Result'
 import UserContext from './src/context/Context'
+import Settings from './src/screens/Settings'
 
 
 const Stack = createNativeStackNavigator()
@@ -25,6 +26,7 @@ function App() {
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
           <Stack.Screen name="Game" component={Game} options={{ headerShown: false }} />
           <Stack.Screen name="Result" component={Result} options={{ headerShown: false }} />
+          <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
         </Stack.Navigator>
       </UserContext.Provider>
     </NavigationContainer>

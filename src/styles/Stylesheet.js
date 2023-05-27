@@ -1,6 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 const globalStyleSheet = StyleSheet.create({
+  container: {
+    paddingVertical: 24,
+    paddingHorizontal: 16,
+    height: '100%',
+    // justifyContent: 'space-between',
+    margin: 24,
+},
   mainArea: {
     height: '100%',
     paddingVertical: 16,
@@ -10,8 +17,7 @@ const globalStyleSheet = StyleSheet.create({
     fontSize: 32,
     fontWeight: 800,
     color: 'black',
-    marginTop: 24,
-
+    fontFamily: 'serif'
   },
   //game screen
   sectionContainer: {

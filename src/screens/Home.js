@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, View, FlatList } from 'react-native'
+import { TouchableOpacity, Text, View, FlatList, Image } from 'react-native'
 import globalStyleSheet from '../styles/Stylesheet'
 import { useContext } from 'react'
 import UserContext from '../context/Context'
@@ -11,6 +11,14 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={globalStyleSheet.mainArea}>
+      <View style={{ flexDirection: 'row-reverse', alignItems: 'baseline', }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+          <Image
+            style={{ height: 24, width: 24 }}
+            source={require('../images/setting.png')}
+          />
+        </TouchableOpacity>
+      </View>
       <Text style={globalStyleSheet.headerTextStyle}>Excercises.</Text>
       <Text style={globalStyleSheet.descriptionText}>Practice daily to improve focus</Text>
 
