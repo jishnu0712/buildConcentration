@@ -7,7 +7,8 @@ const timer = require('../json/Timer.json')
 
 const TimerNew = ({navigation, route, totalAnswered, rightAnswer}) => {
   const MyContext = useContext(UserContext);
-  const [second, setSecond] = useState(timer.timer)
+  // const [second, setSecond] = useState(timer.timer)
+  const [second, setSecond] = useState(500)
 
   useEffect(() => {
     let intervalId = null
