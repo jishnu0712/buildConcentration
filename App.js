@@ -2,11 +2,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './src/screens/Home'
 import { useState } from 'react'
-// import styleSheet from './src/styles/Stylesheet'
 import Game from './src/screens/Game'
 import Result from './src/screens/Result'
 import UserContext from './src/context/Context'
-// import { randomNumber } from './src/Helper/Helper'
 
 
 const Stack = createNativeStackNavigator()
