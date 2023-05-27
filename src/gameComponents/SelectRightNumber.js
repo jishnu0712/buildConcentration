@@ -7,6 +7,7 @@ import { randomNumber, shuffleArray } from '../Helper/Helper'
 import TimerComponent from '../OtherComponents/TimerComponent'
 import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 import TickColorComponent from '../OtherComponents/TickColorComponent'
+import TimerNew from '../OtherComponents/TimerNew'
 
 
 const SelectRightNumber = ({ navigation, route }) => {
@@ -20,8 +21,6 @@ const SelectRightNumber = ({ navigation, route }) => {
   useEffect(() => {
     setNumbers(prev => shuffleArray(prev))
   }, [])
-
-  TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
@@ -61,8 +60,8 @@ const SelectRightNumber = ({ navigation, route }) => {
           </>
         ) : (
           <>
-            <TimerViewComponent />
-            <TickColorComponent tickColor = {tickColor}/>
+            <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
+            <TickColorComponent tickColor={tickColor}/>
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
               <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
                 {Numbers[RandIndex]}
