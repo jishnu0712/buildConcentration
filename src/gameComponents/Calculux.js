@@ -11,6 +11,7 @@ import TickColorComponent from '../OtherComponents/TickColorComponent'
 
 const Calculux = ({ navigation, route }) => {
     const MyContext = useContext(UserContext)
+    const [tickColor, setTickColor] = useState(null)
 
     const a = randomNumber(1, 99)
     const b = randomNumber(1, 99)
@@ -29,7 +30,7 @@ const Calculux = ({ navigation, route }) => {
 
     const setTickColorAfterChange = () => {
         setTimeout(() => {
-            MyContext.setTickColor(null)
+            setTickColor(null)
         }, 200)
     }
     const renderItem = (item) => {
@@ -45,10 +46,10 @@ const Calculux = ({ navigation, route }) => {
 
         if (option === correctAns) {
             setRightAnswer(prev => prev + 1)
-            MyContext.setTickColor('green')
+            setTickColor('green')
             setTickColorAfterChange()
         } else {
-            MyContext.setTickColor('red')
+            setTickColor('red')
             setTickColorAfterChange()
         }
         setTotalAnswered(prev => prev + 1)
@@ -62,14 +63,14 @@ const Calculux = ({ navigation, route }) => {
         //     <View style={{ flex: 1, }}>
         //         <ExitComponent navigation={navigation} />
 
-        //         {!MyContext.gameStarted ? (
+        //         {!gameStarted ? (
         //             <>
         //                 <StartButtonComponent navigation={navigation} route={route} />
         //             </>
         //         ) : (
         //             <>
         //                 <TimerViewComponent />
-        //                 <TickColorComponent />
+        //                 <TickColorComponent tickColor = {tickColor}/>
 
         //                 <View style={styles.container}>
         //                     <Text style={styles.resultTitle}>Calculux</Text>

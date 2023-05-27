@@ -16,6 +16,8 @@ const SelectRightColor = ({ navigation, route }) => {
   const [randIndex, setRandIndex] = useState(randomNumber(0, namedColors.length - 1))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
+  const [tickColor, setTickColor] = useState(null)
+
 
   useEffect(() => {
     setNamedColors(prev => shuffleArray(prev))
@@ -25,17 +27,17 @@ const SelectRightColor = ({ navigation, route }) => {
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
-      MyContext.setTickColor(null)
+      setTickColor(null)
     }, 200)
   }
 
   const tapColor = (index, bgcolor) => {
     if(bgcolor === namedColors[colorIndex]){
       setRightAnswer(prev => prev + 1)
-      MyContext.setTickColor('green')
+      setTickColor('green')
       setTickColorAfterChange()
     }else{
-      MyContext.setTickColor('red')
+      setTickColor('red')
       setTickColorAfterChange()
     }
     setTotalAnswered(prev => prev + 1)
@@ -63,7 +65,7 @@ const SelectRightColor = ({ navigation, route }) => {
       ) : (
         <>
           <TimerViewComponent/>
-          <TickColorComponent />
+          <TickColorComponent tickColor = {tickColor}/>
           <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
             <Text style={{ fontSize: 50, color: namedColors[randIndex], fontWeight: 'bold' }}>
               {namedColors[colorIndex].charAt(0).toUpperCase() + namedColors[colorIndex].slice(1, 20)}

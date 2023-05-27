@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator()
 
 function App() {
   const [gameStarted, setIsGameStarted] = useState(false)
-  const [tickColor, setTickColor] = useState(null)
+  
   const timer = require('./src/json/Timer.json')
   const [second, setSecond] = useState(timer.timer)
   const [colorIndex, setColorIndex] = useState(0)
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <UserContext.Provider value={{ gameStarted, setIsGameStarted, tickColor, setTickColor, second, setSecond, colorIndex, setColorIndex }}>
+      <UserContext.Provider value={{ gameStarted, setIsGameStarted, second, setSecond, colorIndex, setColorIndex }}>
 
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

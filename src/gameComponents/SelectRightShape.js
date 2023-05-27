@@ -24,6 +24,8 @@ const SelectRightShape = ({ navigation, route }) => {
   const [RandIndex, setRandIndex] = useState(randomNumber(0, Images.length - 1))
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
+  const [tickColor, setTickColor] = useState(null)
+
   useEffect(() => {
     setImages(prev => shuffleArray(prev))
   }, [])
@@ -32,17 +34,17 @@ const SelectRightShape = ({ navigation, route }) => {
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
-      MyContext.setTickColor(null)
+      setTickColor(null)
     }, 200)
   }
 
   const tapShapes = (image) => {
     if (image === Images[RandIndex]) {
       setRightAnswer(prev => prev + 1)
-      MyContext.setTickColor('green')
+      setTickColor('green')
       setTickColorAfterChange()
     } else {
-      MyContext.setTickColor('red')
+      setTickColor('red')
       setTickColorAfterChange()
     }
     setTotalAnswered(prev => prev + 1)
@@ -69,7 +71,7 @@ const SelectRightShape = ({ navigation, route }) => {
         ) : (
           <>
             <TimerViewComponent />
-            <TickColorComponent />
+            <TickColorComponent tickColor = {tickColor}/>
             <View style={{ alignItems: 'center', marginBottom: 24 }}>
               <Image source={Images[RandIndex]} style={{ width: 100, height: 100, }} />
             </View>

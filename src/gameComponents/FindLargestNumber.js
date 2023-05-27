@@ -11,11 +11,6 @@ import TimerComponent from '../OtherComponents/TimerComponent'
 import TimerViewComponent from '../OtherComponents/TimerViewComponent'
 const FindLargestNumber = ({ navigation, route }) => {
   const MyContext = useContext(UserContext);
-  
-
-  // const randomNumber = (min, max) => {
-  //   return Math.floor(Math.random() * (max - min + 1)) + min
-  // }
 
   const [leftVal, setLeftVal] = useState(randomNumber(0, 99))
   const [rightVal, setRightVal] = useState(randomNumber(0, 99))
@@ -24,12 +19,13 @@ const FindLargestNumber = ({ navigation, route }) => {
   const [rightValue, setRightValue] = useState(leftVal === rightVal ? rightVal + 1 : rightVal)
   const [rightAnswer, setRightAnswer] = useState(0)
   const [totalAnswered, setTotalAnswered] = useState(0)
+  const [tickColor, setTickColor] = useState(null)
 
   TimerComponent(navigation, route, totalAnswered, rightAnswer)
 
   const setTickColorAfterChange = () => {
     setTimeout(() => {
-      MyContext.setTickColor(null)
+      setTickColor(null)
     }, 200)
   }
 
@@ -40,19 +36,19 @@ const FindLargestNumber = ({ navigation, route }) => {
     if (button === 'left') {
       if (leftValue > rightValue) {
         setRightAnswer(prev => prev + 1)
-        MyContext.setTickColor('green')
+        setTickColor('green')
         setTickColorAfterChange()
       } else {
-        MyContext.setTickColor('red')
+        setTickColor('red')
         setTickColorAfterChange()
       }
     } else {
       if (leftValue < rightValue) {
         setRightAnswer(prev => prev + 1)
-        MyContext.setTickColor('green')
+        setTickColor('green')
         setTickColorAfterChange()
       } else {
-        MyContext.setTickColor('red')
+        setTickColor('red')
         setTickColorAfterChange()
       }
     }
@@ -74,8 +70,8 @@ const FindLargestNumber = ({ navigation, route }) => {
           </>
         ) : (
           <>
-            <TimerViewComponent/>
-            <TickColorComponent />
+            <TimerViewComponent />
+            <TickColorComponent tickColor = {tickColor}/>
             <View style={styles.gameStartedView}>
               <View>
                 <View style={styles.numberButtonView}>
