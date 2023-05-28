@@ -41,7 +41,7 @@ const SelectRightNumber = ({ navigation, route }) => {
   }
 
   const Item = ({ title, bgcolor, index }) => (
-    <TouchableOpacity onPress={() => tapNumber(bgcolor)} style={[styles.item,]}>
+    <TouchableOpacity onPress={() => tapNumber(bgcolor)} style={styles.item}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
@@ -59,7 +59,7 @@ const SelectRightNumber = ({ navigation, route }) => {
         ) : (
           <>
             <TimerNew route={route} navigation={navigation} totalAnswered={totalAnswered} rightAnswer={rightAnswer} />
-            <TickColorComponent tickColor={tickColor}/>
+            <TickColorComponent tickColor={tickColor} />
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}>
               <Text style={{ fontSize: 50, color: 'black', fontWeight: 'bold' }}>
                 {Numbers[RandIndex]}
@@ -72,6 +72,7 @@ const SelectRightNumber = ({ navigation, route }) => {
               renderItem={({ item, index }) => <Item title={item} bgcolor={item} index={index} />
               }
               numColumns={3}
+              style={{flex: 1}}
             />
           </>
         )}
@@ -86,16 +87,16 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
-    width: '26%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
     border: 2,
     borderWidth: 1
-
   },
   title: {
     fontSize: 32,
+    color: 'black',
   },
 })
 
