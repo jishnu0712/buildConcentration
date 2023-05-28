@@ -10,7 +10,6 @@ const Result = ({ navigation, route }) => {
   const Percentage = Math.round((rightAnswer * 100) / totalAnswered)
   const isPassed = ((Percentage >= percentageofpassing) && (totalAnswered >= totalofpassing))
 
-  console.log(((Percentage >= percentageofpassing) && (totalAnswered >= totalofpassing)))
   return (
     <>
       <HomeBackButtonHandler />
