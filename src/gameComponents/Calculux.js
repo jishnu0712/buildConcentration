@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontFamily: 'monospace',
         textAlign: 'center',
+        color: 'black',
     },
     answerSection: {
         marginTop: 120,
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily: 'serif',
         textAlign: 'center',
-        // paddingVertical: 8,
+        color: 'black',
     },
     resultTitle: {
         fontWeight: '800',
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
     container: {
         paddingVertical: 24,
         paddingHorizontal: 16,
-        // justifyContent: 'space-between',
         margin: 24,
     }
 })

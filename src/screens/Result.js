@@ -31,7 +31,7 @@ const Result = ({ navigation, route }) => {
           <View style={{ marginTop: 80 }}>
             <View>
               <Image source={!isPassed ? badResult : passedImage} style={{ alignSelf: 'center', width: 100, height: 100 }} />
-              <Text style={{ alignSelf: 'center', fontWeight: 'bold', fontFamily: 'serif', fontSize: 18, marginTop: 10 }}>
+              <Text style={{ alignSelf: 'center', fontWeight: 'bold', fontFamily: 'serif', fontSize: 18, marginTop: 10, color: 'black' }}>
                 {!isPassed ? `Oops. You need to try\na little more!` : 'You passed the round.'}
               </Text>
 
