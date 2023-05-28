@@ -61,6 +61,7 @@ const globalStyleSheet = StyleSheet.create({
   settingListSubTitle: {
     fontSize: 12,
     fontFamily: 'serif',
+    color: 'gray'
   },
   settingListView: {
     margin: 10
