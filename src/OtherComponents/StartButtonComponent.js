@@ -1,13 +1,14 @@
-import { useContext } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-import UserContext from '../context/Context'
-import globalStyleSheet from '../styles/Stylesheet'
+import { View, Text, TouchableOpacity, Vibration } from 'react-native'
 import styles from '../styles/FindLargestNumStyleSheet'
+import globalStyleSheet from '../styles/Stylesheet'
+import UserContext from '../context/Context'
+import { useContext } from 'react'
 
 const StartButtonComponent = ({navigation, route}) => {
     const MyContext = useContext(UserContext)
     const startGame = () => {
         MyContext.setIsGameStarted(prev => !prev)
+        Vibration.vibrate(100)
     }
     return (
         <>
