@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, } from 'react-native'
 import UserContext from '../context/Context';
 import styles from '../styles/FindLargestNumStyleSheet'
 
@@ -33,7 +33,7 @@ const TimerNew = ({navigation, route, totalAnswered, rightAnswer}) => {
 
   return (
     <View style={styles.timer}>
-        <Text style={styles.timerText}>00:{second.toString().length === 1 ? '0'+second : second }</Text>
+        <Text style={{ ...styles.timerText, color: second < 10 ? 'red' : 'black' }}>00:{second.toString().length === 1 ? '0'+second : second }</Text>
     </View>
   )
 }
