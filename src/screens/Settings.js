@@ -13,8 +13,9 @@ const Settings = ({navigation}) => {
 
     const contactEmailText = `mailto:concentration.build@gmail.com?subject=Build Concentration&body=Hi,\n`
 
-    const privacyPolicyURL = `http://thejishnu.com/buildconcentration/privacy`
-    const termsAndConditionURL = `http://thejishnu.com/buildconcentration/termscondition`
+    const privacyPolicyURL = `https://docs.google.com/document/d/1Hy2SXk6IEKqRMuoQhVeYT20MayajB8DSrzcBmszCZEw/edit`
+    const termsAndConditionURL = `https://docs.google.com/document/d/1CO8axctQgjI201ErCUKU2a6KFet2VKwHtHydcigTDoM/edit?usp=sharing`
+
 
     return (
         <View style={globalStyleSheet.mainArea}>
@@ -33,7 +34,7 @@ const Settings = ({navigation}) => {
 
             <TouchableOpacity style={globalStyleSheet.settingListView} onPress={() => Linking.openURL(contactEmailText)}>
                 <Text style={globalStyleSheet.settingListTitle}>Contact US</Text>
-                <Text style={globalStyleSheet.settingListSubTitle}>Have question, always ready to replay!</Text>
+                <Text style={globalStyleSheet.settingListSubTitle}>Have question, always ready to reply!</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => Linking.openURL(privacyPolicyURL)} style={{...globalStyleSheet.settingListView, marginTop: 20, }}>
