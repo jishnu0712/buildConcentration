@@ -8,6 +8,7 @@ import { useContext, useState, useEffect } from 'react'
 const Home = ({ navigation }) => {
   const MyContext = useContext(UserContext)
   const gamesList = require('../json/GamesList.json')
+  const lockIcon = require('../../src/images/lock.png')
 
   const [lastBackPressTime, setLastBackPressTime] = useState(0)
 
@@ -54,8 +55,13 @@ const Home = ({ navigation }) => {
                   <Text style={globalStyleSheet.serialNo}>{index + 1}. </Text>
                   <Text style={globalStyleSheet.excercisesName}>{item.title}</Text>
                 </Text>
+
                 <View>
                   <Text style={globalStyleSheet.descriptionText}>{item.subTitle}</Text>
+                </View>
+
+                <View style={{ position: 'absolute', alignSelf: 'flex-end', flexDirection: 'column', alignItems:'center', height: '100%', backgroundColor: 'red' }}>
+                  <Image source={lockIcon}/>
                 </View>
               </TouchableOpacity>
             </>

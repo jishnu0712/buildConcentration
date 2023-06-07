@@ -34,7 +34,8 @@ const globalStyleSheet = StyleSheet.create({
   excercises: {
     paddingVertical: 5,
     paddingHorizontal: 20,
-    borderRadius: 2
+    borderRadius: 2,
+    // flexDirection: 'row'
   },
   serialNo: {
     fontWeight: 'bold',

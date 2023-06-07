@@ -1,8 +1,8 @@
 [
-    {"title" : "Find Largest Number", "subTitle" : "Compare the number and choose the lager one.", "totalofpassing" : 58, "percentageofpassing" : 97},
-    {"title" : "Select Right Color", "subTitle" : "Select the color with mentiond text.", "totalofpassing" : 58, "percentageofpassing" : 97},
-    {"title" : "Select Right Number", "subTitle" : "Select the right number.", "totalofpassing" : 58, "percentageofpassing" : 97},
-    {"title" : "Select Right Shape", "subTitle" : "Select the right shape.", "totalofpassing" : 58, "percentageofpassing" : 97},
-    {"title" : "Calculux", "subTitle" : "Make calculation speed faster", "totalofpassing" : 58, "percentageofpassing" : 97},
-    {"title" : "Select Identical Image", "subTitle" : "Select the right identical image.", "totalofpassing" : 58, "percentageofpassing" : 97}
+    {"title" : "Find Largest Number", "subTitle" : "Compare the number and choose the lager one.", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true},
+    {"title" : "Select Right Color", "subTitle" : "Select the color with mentiond text.", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true},
+    {"title" : "Select Right Number", "subTitle" : "Select the right number.", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true},
+    {"title" : "Select Right Shape", "subTitle" : "Select the right shape.", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true},
+    {"title" : "Calculux", "subTitle" : "Make calculation speed faster", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true},
+    {"title" : "Select Identical Image", "subTitle" : "Select the right identical image.", "totalofpassing" : 58, "percentageofpassing" : 97, "isopen" : true}
 ]
