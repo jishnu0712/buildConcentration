@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
                   <Text style={globalStyleSheet.descriptionText}>{item.subTitle}</Text>
                 </View>
 
-                <View style={{ position: 'absolute', alignSelf: 'flex-end', flexDirection: 'column', alignItems:'center', height: '100%', backgroundColor: 'red' }}>
+                <View style={{ position: 'absolute', alignSelf: 'flex-end', flexDirection: 'column',justifyContent: 'center', alignItems:'center', height: '100%' }}>
                   <Image source={lockIcon}/>
                 </View>
               </TouchableOpacity>
