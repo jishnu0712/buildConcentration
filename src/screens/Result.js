@@ -1,14 +1,31 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import HomeBackButtonHandler from '../OtherComponents/HomeBackButtonHandler'
 import badResult from '../images/badResult.png'
 import passedImage from '../images/pass.png'
 import globalStyleSheet from '../styles/Stylesheet'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Result = ({ navigation, route }) => {
+  let gamesList = require('../json/GamesList.json')
   const { rightAnswer, totalAnswered, title, subTitle, percentageofpassing, totalofpassing } = route.params
   const Percentage = Math.round((rightAnswer * 100) / totalAnswered)
   const isPassed = ((Percentage >= percentageofpassing) && (totalAnswered >= totalofpassing))
+
+  if(isPassed && (route.params.index+1 !== gamesList.length)){
+    gamesList[route.params.index+1].isopen = true
+    const storeData = async () => {
+      try {
+        await AsyncStorage.setItem('gameList', JSON.stringify(gamesList));
+        console.log('Data stored successfully!');
+      } catch (error) {
+        console.log('Error storing data:', error);
+      }
+    };
+    
+    storeData();
+  }
 
   return (
     <>

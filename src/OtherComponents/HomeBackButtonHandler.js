@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { BackHandler } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import UserContext from '../context/Context'

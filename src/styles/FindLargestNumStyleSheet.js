@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     startButtonView: {
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100%',
+      height: '70%',
       borderRadius: 10,
     },
     timer: {

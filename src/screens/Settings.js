@@ -4,18 +4,13 @@ import globalStyleSheet from '../styles/Stylesheet'
 import DeviceInfo from 'react-native-device-info'
 import { shareFile } from '../Helper/Helper'
 
-
-
 const Settings = ({navigation}) => {
     const packageName = DeviceInfo.getBundleId()
     const playStoreURL = `https://play.google.com/store/apps/details?id=${packageName}`
-    const sharableText = `An awosome concentration building App.\nDownload now\n${playStoreURL}`
-
+    const sharableText = `An awesome concentration building Game.\nDownload now\n${playStoreURL}`
     const contactEmailText = `mailto:concentration.build@gmail.com?subject=Build Concentration&body=Hi,\n`
-
     const privacyPolicyURL = `https://docs.google.com/document/d/1Hy2SXk6IEKqRMuoQhVeYT20MayajB8DSrzcBmszCZEw/edit`
     const termsAndConditionURL = `https://docs.google.com/document/d/1CO8axctQgjI201ErCUKU2a6KFet2VKwHtHydcigTDoM/edit?usp=sharing`
-
 
     return (
         <View style={globalStyleSheet.mainArea}>
@@ -46,7 +41,6 @@ const Settings = ({navigation}) => {
             </TouchableOpacity>
 
         </View>
-
     )
 }
 

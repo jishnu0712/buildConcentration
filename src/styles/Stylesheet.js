@@ -67,6 +67,10 @@ const globalStyleSheet = StyleSheet.create({
   settingListView: {
     margin: 10
   },
+  highScoreView: {
+    marginHorizontal: 10,
+    marginTop: 30
+  },
   resultBottomButtonView: {
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -84,6 +88,14 @@ const globalStyleSheet = StyleSheet.create({
     fontFamily: 'serif',
     fontWeight: 'bold',
     fontSize: 16
+  },
+  lockIconView: { 
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems:'center',
+    height: '100%',
   }
 })
 

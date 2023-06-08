@@ -22,11 +22,7 @@ function App() {
   return (
     <>
       <StatusBar
-          // animated={true}
           backgroundColor="#f5f8f9"
-          // barStyle={statusBarStyle}
-          // showHideTransition={statusBarTransition}
-          // hidden={hidden}
           barStyle="dark-content"
         />
       <NavigationContainer>
